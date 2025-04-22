@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800 bg-gray-50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-purple-600 to-blue-500 text-white focus:ring-purple-400;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-orange-500 to-pink-500 text-white focus:ring-orange-400;
+  }
+
+  .container-custom {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r;
+  }
+
+  .badge-blue {
+    @apply from-blue-500 to-blue-600 text-white;
+  }
+
+  .badge-purple {
+    @apply from-purple-500 to-purple-600 text-white;
+  }
+
+  .badge-orange {
+    @apply from-orange-500 to-orange-600 text-white;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+  }
+}
+
+.badge-interactive:hover {
+  animation: badge-glow 1.5s ease-in-out infinite;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu animation */
+.menu-slide-enter {
+  transform: translateX(100%);
+}
+.menu-slide-enter-active {
+  transform: translateX(0%);
+  transition: transform 300ms;
+}
+.menu-slide-exit {
+  transform: translateX(0%);
+}
+.menu-slide-exit-active {
+  transform: translateX(100%);
+  transition: transform 300ms;
+}
